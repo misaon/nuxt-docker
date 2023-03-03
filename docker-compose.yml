@@ -10,4 +10,4 @@ services:
       - ".:/app"
     ports:
       - "3000:3000"
-      - "24678:24678"                     # Exposed port pro HMR
+      - "24678:24678"                     # Exposed port for HMR
