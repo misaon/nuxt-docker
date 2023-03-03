@@ -1,11 +1,13 @@
 version: "3.9"
 services:
   app:
+    image: nuxt-docker:latest             # Replace with the name of your image
     build:
       context: .
       dockerfile: ./docker/Dockerfile
+    command: "pnpm run dev"
     volumes:
       - ".:/app"
     ports:
       - "3000:3000"
-      - "24678:24678"
+      - "24678:24678"                     # Exposed port pro HMR

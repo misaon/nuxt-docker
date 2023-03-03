@@ -1,42 +1,29 @@
-# Nuxt 3 Minimal Starter
+# 🐳 @misaon/nuxt-docker
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+> Sample Nuxt 3 project running on Docker. With tweaks and PNPM support!
 
-## Setup
+## Usage
 
-Make sure to install the dependencies:
+For **development**, simple run:
 
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
+```sh
+docker compose up -d
 ```
 
-## Development Server
+For **production**, run:
 
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
+```sh
+docker compose build
+docker run -p 3000:3000 nuxt-docker:latest
 ```
 
-## Production
+## Docker source files
 
-Build the application for production:
+- `docker-compose.yml`
+- `docker`
+  - `Dockerfile`
+  - `nuxt-entrypoint.sh`
 
-```bash
-npm run build
-```
+## License
 
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Made with 🧡 by [@misaon](https://github.com/misaon)

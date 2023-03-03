@@ -17,11 +17,12 @@ ENV HOST=0.0.0.0
 
 WORKDIR /app
 
-COPY --from=nuxtBuild /app/docker/nuxt-entrypoint.sh /usr/local/bin/
+COPY --from=nuxtBuild /app/docker/nuxt-entrypoint.sh /usr/local/bin/nuxt-entrypoint
+RUN chmod +x /usr/local/bin/nuxt-entrypoint
+
 COPY --from=nuxtBuild /bin/pnpm /bin/
 COPY --from=nuxtBuild /app/package.json ./
 COPY --from=nuxtBuild /app/.output ./.output
 
-RUN chmod +x /usr/local/bin/nuxt-entrypoint.sh
-
-ENTRYPOINT ["nuxt-entrypoint.sh"]
+ENTRYPOINT ["nuxt-entrypoint"]
+CMD ["node", "/app/.output/server/index.mjs"]
